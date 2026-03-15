@@ -5,6 +5,10 @@ const { GoogleGenerativeAI } = require('@google/generative-ai');
 
 const app = express();
 app.use(express.json());
+// UptimeRobot-এর জন্য মেইন দরজা 🚪
+app.get('/', (req, res) => {
+    res.status(200).send('Hello! WhatsApp Bot is Alive and Running! 🚀');
+});
 
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
 const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
